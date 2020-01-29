@@ -1,0 +1,46 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Api Cli
+ *
+ * @author Doğan Can <dgncan@gmail.com>
+ * Date/Time: 11.06.2019 23:27
+ */
+
+if (PHP_SAPI !== 'cli') {
+    echo 'Warning: Init should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
+}
+require __DIR__.'/../vendor/autoload.php';
+
+use Command\ErpLocator;
+use Symfony\Component\Console\Application;
+
+use Command\MiscJobsWorker;
+
+use Command\SmsWorker;
+use Command\MailWorker;
+use Command\ErpWorker;
+use Command\WhatsappWorker;
+use Command\PrintDocWorker;
+
+use Command\WhatsappSendFakeMessage;
+
+use Command\ElasticIndexProduct;
+use Command\ElasticIndexTopic;
+use Command\ElasticIndexUser;
+
+use Command\ErpSyncMarketProduct;
+use Command\ErpSyncMarketOrder;
+use Command\ErpRequest;
+use Command\QueueFailRepeat;
+
+use Command\BinSync;
+
+
+$application = new Application('Api Cli', '0.1');
+
+
+
+
+$application->add(new ErpLocator());
+$application->run();

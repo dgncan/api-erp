@@ -1,0 +1,10 @@
+.DS_Store
+.idea/
+
+vendor/
+conf/settings-local.ini
+
+runtime/*
+!runtime/.gitkeep
+
+tests/*
